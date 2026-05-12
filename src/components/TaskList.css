@@ -1,0 +1,22 @@
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.task-list-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  color: #64748b;
+  margin-top: 2rem;
+}
+
+.task-list-empty h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #475569;
+}
