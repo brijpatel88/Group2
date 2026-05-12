@@ -1,21 +1,26 @@
+/* Card Container */
 .task-card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  background: rgba(30, 41, 59, 0.6); /* Slate 800 with transparency */
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease-in-out;
 }
 
+/* Completed State Styling */
 .task-completed {
-  opacity: 0.6;
-  background: #f8f9fa;
+  opacity: 0.5;
+  background: rgba(15, 23, 42, 0.4); /* Darker slate for completed */
 }
 
 .task-completed .task-title {
   text-decoration: line-through;
+  color: #64748b;
 }
 
+/* Header & Title */
 .task-header {
   display: flex;
   justify-content: space-between;
@@ -26,14 +31,39 @@
 .task-title {
   margin: 0;
   font-size: 1.25rem;
-  color: #333;
+  color: #f8fafc; /* White text to match app shell */
 }
 
+/* Priority Badges */
+.priority-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.priority-high { 
+  background-color: rgba(239, 68, 68, 0.2); 
+  color: #fca5a5; 
+}
+.priority-medium { 
+  background-color: rgba(245, 158, 11, 0.2); 
+  color: #fcd34d; 
+}
+.priority-low { 
+  background-color: rgba(16, 185, 129, 0.2); 
+  color: #6ee7b7; 
+}
+
+/* Task Details & Notes */
 .task-details {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   font-size: 0.9rem;
-  color: #555;
+  color: #94a3b8; /* Slate 400 for secondary text */
   margin-bottom: 1rem;
 }
 
@@ -42,25 +72,20 @@
 }
 
 .task-notes {
-  background: #f1f3f5;
+  background-color: rgba(15, 23, 42, 0.6);
   padding: 0.75rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  color: #444;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.1);
   margin-bottom: 1.5rem;
 }
 
-.priority-badge {
-  padding: 0.25rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: bold;
+.task-notes p {
+  margin: 0;
 }
 
-.priority-high { background: #fee2e2; color: #dc2626; }
-.priority-medium { background: #fef3c7; color: #d97706; }
-.priority-low { background: #d1fae5; color: #059669; }
-
+/* Buttons */
 .task-actions {
   display: flex;
   gap: 0.5rem;
@@ -69,14 +94,19 @@
 .btn {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
-  transition: opacity 0.2s;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
 }
 
-.btn:hover { opacity: 0.8; }
-.btn-success { background: #10b981; color: white; }
-.btn-warning { background: #f59e0b; color: white; }
-.btn-secondary { background: #6b7280; color: white; }
-.btn-danger { background: #ef4444; color: white; }
+.btn:hover { 
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.btn-success { background-color: #10b981; color: white; }
+.btn-warning { background-color: #f59e0b; color: white; }
+.btn-secondary { background-color: #475569; color: white; }
+.btn-danger { background-color: #ef4444; color: white; }
