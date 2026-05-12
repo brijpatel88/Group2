@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/types/Task.ts
 // Defines the shared TypeScript structure for all task data.
 
@@ -15,3 +16,16 @@ export interface StudyTask {
  notes: string;
  createdAt: string;
 }
+=======
+export type TaskCategory = 'Work' | 'Personal' | 'Academic'
+
+export type CategoryFilter = 'All' | TaskCategory
+
+export type Task = {
+  id: number
+  title: string
+  category: TaskCategory
+  dueDate: string
+  completed: boolean
+}
+>>>>>>> 8693c8e (Complete sidebar category navigation)

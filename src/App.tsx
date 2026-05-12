@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/App.tsx
 // Main app file. Manages global task state and connects all components.
 
@@ -166,10 +167,62 @@ export default function App() {
   const completedCount = tasks. filter((task) => task.status === "Completed").length;
   const pendingCount = tasks.filter((task) => task.status === "Pending").length;
   const overdueCount = tasks.filter((task) => isTaskOverdue(task)).length;
+=======
+import { useMemo, useState } from 'react'
+import Sidebar from './components/Sidebar'
+import type { CategoryFilter, Task } from './types/Task'
+import './App.css'
+
+const categories: CategoryFilter[] = ['All', 'Work', 'Personal', 'Academic']
+
+const tasks: Task[] = [
+  {
+    id: 1,
+    title: 'Draft project proposal',
+    category: 'Work',
+    dueDate: 'Today',
+    completed: false,
+  },
+  {
+    id: 2,
+    title: 'Review lecture notes',
+    category: 'Academic',
+    dueDate: 'Tomorrow',
+    completed: false,
+  },
+  {
+    id: 3,
+    title: 'Book dentist appointment',
+    category: 'Personal',
+    dueDate: 'Friday',
+    completed: true,
+  },
+  {
+    id: 4,
+    title: 'Prepare team update',
+    category: 'Work',
+    dueDate: 'Monday',
+    completed: false,
+  },
+]
+
+function App() {
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryFilter>('All')
+
+  const visibleTasks = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return tasks
+    }
+
+    return tasks.filter((task) => task.category === selectedCategory)
+  }, [selectedCategory])
+>>>>>>> 8693c8e (Complete sidebar category navigation)
 
   return (
     <div className="app-shell">
       <Sidebar
+<<<<<<< HEAD
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
@@ -226,3 +279,38 @@ export default function App() {
     </div>
   );
 }
+=======
+        categories={categories}
+        selectedCategory={selectedCategory}
+        tasks={tasks}
+        onCategoryChange={setSelectedCategory}
+      />
+
+      <main className="task-view">
+        <div className="task-view__header">
+          <p className="task-view__eyebrow">Current View</p>
+          <h1>{selectedCategory} Tasks</h1>
+          <p>
+            Showing {visibleTasks.length}{' '}
+            {visibleTasks.length === 1 ? 'task' : 'tasks'}
+          </p>
+        </div>
+
+        <ul className="task-list" aria-label={`${selectedCategory} tasks`}>
+          {visibleTasks.map((task) => (
+            <li className="task-card" key={task.id}>
+              <div>
+                <h2>{task.title}</h2>
+                <p>{task.dueDate}</p>
+              </div>
+              <span>{task.category}</span>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </div>
+  )
+}
+
+export default App
+>>>>>>> 8693c8e (Complete sidebar category navigation)

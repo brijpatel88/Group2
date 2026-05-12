@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -20,10 +21,16 @@
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
+=======
+  font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #111827;
+  background: #f8fafc;
+>>>>>>> 8693c8e (Complete sidebar category navigation)
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
 
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -60,11 +67,18 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+=======
+}
+
+#root {
+  min-height: 100svh;
+>>>>>>> 8693c8e (Complete sidebar category navigation)
 }
 
 body {
   margin: 0;
 }
+<<<<<<< HEAD
 
 h1,
 h2 {
@@ -109,3 +123,5 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+=======
+>>>>>>> 8693c8e (Complete sidebar category navigation)
