@@ -55,11 +55,12 @@ const TaskForm: React.FC<TaskFormProps> = ({ editingTask, onAddTask, onUpdateTas
     <div className="modal-overlay">
       <div className="modal-content">
         <header>
+            <i className="bi bi-check2-circle" style={{ fontSize: '2rem' }}></i>
           <div className="icon-title">
-             <div className="check-circle">✓</div> 
              <h2>{editingTask ? 'Edit task' : 'Create a task'}</h2>
+              <p className="subtitle">Please fill in the details below</p>
           </div>
-          <p className="subtitle">Please fill in the details below</p>
+          
         </header>
 
         <form onSubmit={handleSubmit}>
