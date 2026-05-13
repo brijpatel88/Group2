@@ -98,43 +98,6 @@ export default function App() {
     );
   }
 
-
-
-  /**
-   * INTEGRATION FOR ADD AND EDIT MODAL
-   * This unified handler will be passed to TaskForm's onSave prop.
-   * It checks if an ID already exists to determine if it should Update or Create.
-   */
-  /*
-  const handleSaveFromModal = (task: StudyTask) => {
-    if (editingTask) {
-      // Logic for EDIT: Update the specific task in the array
-      setTasks((currentTasks) =>
-        currentTasks.map((t) => (t.id === task.id ? task : t))
-      );
-    } else {
-      // Logic for ADD: Put the brand new task at the top
-      setTasks((currentTasks) => [task, ...currentTasks]);
-    }
-    
-    // Close the modal and reset editing state
-    setIsFormOpen(false);
-    setEditingTask(null);
-  };
-
-// --- UPDATE THE TaskForm COMPONENT AT THE BOTTOM OF YOUR JSX ---
-
-      {isFormOpen && (
-        <TaskForm
-          isOpen={isFormOpen}         // Control visibility
-          onClose={handleCloseForm}   // Function for the Cancel button
-          onSave={handleSaveFromModal} // Unified Save function (Add & Edit)
-          taskToEdit={editingTask}    // If null = Add mode, If task = Edit mode
-        />
-      )} */
-      
-     
-
   // Opens form in add mode.
   function handleOpenAddForm() {
     setEditingTask(null);
@@ -261,38 +224,6 @@ export default function App() {
           onClose={handleCloseForm}
         />
       )}
-
-      
-
-
     </div>
   );
 }
-
-/*
- //============Code for the Add Task button=================
-
-
-const handleAddNew = () => {
-  setTaskToEdit(null); // This sends 'null' as a prop
-  setIsModalOpen(true);
-};
-
-// UI usage:
-// <button onClick={handleAddNew}>+ Add Task</button>
-*/ 
-
-
-/*
-
-//============Code for the Edit Task button(the pen inside the task card)=================
-const handleEdit = (task: StudyTask) => {
-  setTaskToEdit(task); // This sends the specific task object with its ID
-  setIsModalOpen(true);
-};
-
-// UI usage inside your .map():
-// <button onClick={() => handleEdit(item)}>Edit</button>
-
-
-*/
