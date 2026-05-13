@@ -3,18 +3,25 @@ import React, { useState } from 'react';
 import type { StudyTask, TaskCategory, TaskPriority } from '../types/Task.ts';
 import './TaskForm.css';
 
-interface TaskModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (task: StudyTask) => void;
-  taskToEdit?: StudyTask | null; 
+interface TaskFormProps {
+  editingTask: StudyTask | null;
+
+  onAddTask: (
+    taskData: Omit<StudyTask, "id" | "status" | "createdAt">
+  ) => void;
+
+  onUpdateTask: (
+    taskData: Omit<StudyTask, "id" | "status" | "createdAt">
+  ) => void;
+
+  onClose:() => void;
 }
 
-const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, onSave, taskToEdit }) => {
+const TaskForm: React.FC<TaskFormProps> = ({ editingTask, onAddTask, onUpdateTask, onClose, }) => {
   // Use taskToEdit directly for the initial state. 
   // No useEffect needed!
-  const [formData, setFormData] = useState<Partial<StudyTask>>(
-    taskToEdit || {
+  const [formData, setFormData] = useState<Omit<StudyTask, "id" | "createdAt">>(
+    editingTask || {
       title: '',
       category: 'Personal',
       priority: 'Low',
@@ -24,16 +31,24 @@ const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, onSave, taskToEd
     }
   );
 
-  if (!isOpen) return null;
-
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const finalTask: StudyTask = {
-      ...(formData as StudyTask),
-      id: taskToEdit?.id || crypto.randomUUID(), // Using your app's UUID style
-      createdAt: taskToEdit?.createdAt || new Date().toISOString(),
+  e.preventDefault();
+
+  const taskData = {
+      title: formData.title || "",
+      category: formData.category as TaskCategory,
+      priority: formData.priority as TaskPriority,
+      dueDate: formData.dueDate || "",
+      notes: formData.notes || "",
     };
-    onSave(finalTask);
+   
+    if (editingTask) {
+      onUpdateTask(taskData);
+    } else {
+      onAddTask(taskData);
+    }
+   
+    onClose();
   };
 
   return (
@@ -42,7 +57,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, onSave, taskToEd
         <header>
           <div className="icon-title">
              <div className="check-circle">✓</div> 
-             <h2>{taskToEdit ? 'Edit task' : 'Create a task'}</h2>
+             <h2>{editingTask ? 'Edit task' : 'Create a task'}</h2>
           </div>
           <p className="subtitle">Please fill in the details below</p>
         </header>
@@ -92,7 +107,7 @@ const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, onSave, taskToEd
           <div className="modal-actions">
             <button type="button" className="btn-cancel" onClick={onClose}>Cancel</button>
             <button type="submit" className="btn-save">
-              {taskToEdit ? 'Update task' : 'Add a task'}
+              {editingTask ? 'Update task' : 'Add a task'}
             </button>
           </div>
         </form>
@@ -101,4 +116,4 @@ const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, onSave, taskToEd
   );
 };
 
-export default TaskModal;
+export default TaskForm;
