@@ -1,27 +1,26 @@
-import type { CategoryFilter, Task } from '../types/Task'
 import './Sidebar.css'
 
+type SidebarCategory =
+  | 'All Tasks'
+  | 'Study'
+  | 'Assignments'
+  | 'Personal'
+  | 'Completed'
+
 type SidebarProps = {
-  categories: CategoryFilter[]
-  selectedCategory: CategoryFilter
-  tasks: Task[]
-  onCategoryChange: (category: CategoryFilter) => void
+  selectedCategory: SidebarCategory
+  onSelectCategory: (category: SidebarCategory) => void
 }
 
-function Sidebar({
-  categories,
-  selectedCategory,
-  tasks,
-  onCategoryChange,
-}: SidebarProps) {
-  const getTaskCount = (category: CategoryFilter) => {
-    if (category === 'All') {
-      return tasks.length
-    }
+const categories: SidebarCategory[] = [
+  'All Tasks',
+  'Study',
+  'Assignments',
+  'Personal',
+  'Completed',
+]
 
-    return tasks.filter((task) => task.category === category).length
-  }
-
+function Sidebar({ selectedCategory, onSelectCategory }: SidebarProps) {
   return (
     <aside className="sidebar" aria-label="Task category navigation">
       <div className="sidebar__header">
@@ -38,13 +37,10 @@ function Sidebar({
               type="button"
               className={`sidebar__category${isActive ? ' sidebar__category--active' : ''}`}
               aria-pressed={isActive}
-              onClick={() => onCategoryChange(category)}
+              onClick={() => onSelectCategory(category)}
               key={category}
             >
               <span className="sidebar__category-name">{category}</span>
-              <span className="sidebar__category-count">
-                {getTaskCount(category)}
-              </span>
             </button>
           )
         })}
