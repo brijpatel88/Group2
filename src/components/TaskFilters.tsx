@@ -31,10 +31,7 @@ export default function TaskFilters ({
 }: TaskFiltersProps) {
   return (
     <section className="task-filters">
-      <div className="filter-heading">
-        <p className="filter-lable">Find your task</p>
-        <h2>Search & Filters</h2>
-      </div>
+      <h3 className="filters-title">Filters</h3>
 
       <div className="filter-grid">
         <label className="filter-field">
