@@ -1,73 +1,165 @@
-# React + TypeScript + Vite
+# Task & Study Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Task & Study Planner Web Application** built using **React + TypeScript + Vite**. This application helps students and users organize study tasks, assignments, and personal activities in one place with filtering, task tracking, and productivity features.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Project Overview
 
-## React Compiler
+The **Task & Study Planner** is designed to improve productivity by allowing users to:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create and manage tasks
+- Organize tasks by category
+- Set priorities and due dates
+- Track completed and pending work
+- Filter and search tasks quickly
+- Monitor progress using dashboard statistics
 
-## Expanding the ESLint configuration
+The application uses **local storage** to save tasks so data remains available after refreshing the browser.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### ✅ Task Management
+- Add new tasks
+- Edit existing tasks
+- Delete tasks
+- Mark tasks as completed or pending
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### ✅ Categories
+Tasks can be organized into categories such as:
+
+- Study
+- Assignments
+- Personal
+- Completed Tasks
+
+### ✅ Search & Filtering
+Users can:
+
+- Search tasks by title or subject
+- Filter by priority:
+  - High
+  - Medium
+  - Low
+- Filter by status:
+  - Pending
+  - Completed
+- Sort tasks by:
+  - Due Date
+  - Priority
+  - Newest
+
+### ✅ Dashboard Summary
+The dashboard includes:
+
+- Total Tasks
+- Completed Tasks
+- Pending Tasks
+- Overdue Tasks
+- Progress Indicator
+
+### ✅ Modern User Interface
+- Sidebar navigation
+- Dashboard layout
+- Popup modal for task creation/editing
+- Responsive design
+
+---
+
+## 🛠️ Technologies Used
+
+- **React**
+- **TypeScript**
+- **Vite**
+- **CSS3**
+- **Local Storage API**
+
+---
+
+## 📂 Project Structure
+
+```txt
+src/
+│── components/
+│   ├── Sidebar.tsx
+│   ├── SummaryCards.tsx
+│   ├── TaskFilters.tsx
+│   ├── TaskForm.tsx
+│   ├── TaskItem.tsx
+│   └── TaskList.tsx
+│
+│── types/
+│   └── Task.ts
+│
+│── utils/
+│   ├── localStorage.ts
+│   └── taskHelpers.ts
+│
+│── App.tsx
+│── App.css
+│── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Installation & Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository
+
+```bash
+git clone https://github.com/brijpatel88/Group2.git
 ```
+
+2. Navigate to the project folder
+
+```bash
+cd task-study-planner
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Run the development server
+
+```bash
+npm run dev
+```
+
+5. Open in browser
+
+```txt
+http://localhost:5173
+```
+
+---
+
+## 👥 Team Members
+
+This project was developed collaboratively by:
+
+- Cemar Watin  
+- Chibuzor Awanye  
+- Richard Begin  
+- Isidore Mbargamanga  
+- Brijesh Patel
+
+---
+
+## 📄 Copyright
+
+© 2026 Task & Study Planner Project. All rights reserved.
+
+This project was created for academic and educational purposes as part of a collaborative software development assignment.
+
+Unauthorized commercial distribution, reproduction, or modification of this project without permission from the authors is prohibited.
+
+---
+
+## 📜 License
+
+This project is intended for **educational use only**.
