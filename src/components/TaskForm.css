@@ -17,7 +17,17 @@
   text-align: center;
 }
 
-
+.task-input::placeholder {
+  color: #ebebf8;      
+  opacity: 1;       
+  font-weight: 400;    
+}
+.task-input::placeholder,
+textarea::placeholder {
+  color: #ebebf8;
+  opacity: 1;
+  
+}
 
 .task-input, select, textarea {
   width: 100%;
