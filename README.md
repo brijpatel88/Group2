@@ -4,6 +4,18 @@ A modern **Task & Study Planner Web Application** built using **React + TypeScri
 
 ---
 
+## 🎥 Project Demo Video
+
+Watch the full project walkthrough here:
+
+[▶️ Watch Demo Video](https://youtu.be/y-ZvV3LxaQA)
+
+Or click the thumbnail below:
+
+[![Task Study Planner Demo](https://img.youtube.com/vi/y-ZvV3LxaQA/maxresdefault.jpg)](https://youtu.be/y-ZvV3LxaQA)
+
+---
+
 ## 📌 Project Overview
 
 The **Task & Study Planner** is designed to improve productivity by allowing users to:
