@@ -1,0 +1,112 @@
+/* Card Container */
+.task-card {
+  background: rgba(30, 41, 59, 0.6); /* Slate 800 with transparency */
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Completed State Styling */
+.task-completed {
+  opacity: 0.5;
+  background: rgba(15, 23, 42, 0.4); /* Darker slate for completed */
+}
+
+.task-completed .task-title {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+/* Header & Title */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #f8fafc; /* White text to match app shell */
+}
+
+/* Priority Badges */
+.priority-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.priority-high { 
+  background-color: rgba(239, 68, 68, 0.2); 
+  color: #fca5a5; 
+}
+.priority-medium { 
+  background-color: rgba(245, 158, 11, 0.2); 
+  color: #fcd34d; 
+}
+.priority-low { 
+  background-color: rgba(16, 185, 129, 0.2); 
+  color: #6ee7b7; 
+}
+
+/* Task Details & Notes */
+.task-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #94a3b8; /* Slate 400 for secondary text */
+  margin-bottom: 1rem;
+}
+
+.task-details p {
+  margin: 0;
+}
+
+.task-notes {
+  background-color: rgba(15, 23, 42, 0.6);
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.task-notes p {
+  margin: 0;
+}
+
+/* Buttons */
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.btn:hover { 
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.btn-success { background-color: #10b981; color: white; }
+.btn-warning { background-color: #f59e0b; color: white; }
+.btn-secondary { background-color: #475569; color: white; }
+.btn-danger { background-color: #ef4444; color: white; }
