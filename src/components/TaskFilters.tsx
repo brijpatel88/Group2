@@ -31,7 +31,6 @@ export default function TaskFilters ({
 }: TaskFiltersProps) {
   return (
     <section className="task-filters">
-      <h3 className="filters-title">Filters</h3>
 
       <div className="filter-grid">
         <label className="filter-field">

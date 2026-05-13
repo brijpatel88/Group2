@@ -1,118 +1,179 @@
+/* src/components/TaskForm.css */
+/* Modal form styling for adding and editing tasks. */
+
 .modal-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.25s ease-out;
 }
 
 .modal-content {
-  background: white;
-  padding: 40px;
-  border-radius: 30px; 
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  text-align: center;
+  width: 90%;
+  max-width: 540px;
+  padding: 34px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 34%),
+    linear-gradient(135deg, #121c2e, #172033);
+  color: #f8fafc;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  animation: popIn 0.28s ease-out;
 }
 
+.modal-content header {
+  margin-bottom: 24px;
+  text-align: left;
+}
 
+.icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-.task-input, select, textarea {
+.check-circle {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: white;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(56, 189, 248, 0.28);
+}
+
+.icon-title h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.task-input,
+.modal-content select,
+.modal-content textarea {
   width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border: 0.5px solid #272a3b;
-  border-radius: 15px;
-  background-color: #3B4B66;
-  font-size: 16px;
+  min-height: 50px;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.55);
+  color: #f8fafc;
+  font-size: 0.95rem;
+  outline: none;
   box-sizing: border-box;
-  color: #ebebeb;
-  
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-textarea { height: 120px; resize: none; }
+.task-input::placeholder,
+.modal-content textarea::placeholder {
+  color: #64748b;
+}
+
+.task-input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.14);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.modal-content textarea {
+  min-height: 120px;
+  padding: 15px 16px;
+  resize: none;
+}
 
 .modal-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.btn-cancel,
+.btn-save {
+  border: none;
+  border-radius: 16px;
+  padding: 13px 24px;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cancel {
-  background: #e57373;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 15px;
-  cursor: pointer;
+  background: linear-gradient(135deg, #fb7185, #ef4444);
 }
 
 .btn-save {
-  background: #3f51b5; /* Dark blue/purple from image */
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 15px;
-  cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.28);
 }
 
-/* The background fades in */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
+.btn-cancel:hover,
+.btn-save:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
 }
 
-/* The modal box 'pops' up */
-.modal-content {
-  background: #121C2E;
-  padding: 40px;
-  border-radius: 30px;
-  width: 90%;
-  max-width: 500px;
-  transform: scale(1);
-  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#header{
-    display: flex;
-    gap:1rem;
-    align-items:center ;
-}
-.icon-title h2{
-    font-size: 1.8em;
-}
-.subtitle{
-    color: #ceced1;
-}
-
-header{
-    text-align: left;
-    margin-bottom: 2em;
-    display: flex;
-    gap: 1em;
-}
-
-/* Define the 'Fade' animation */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-/* Define the 'Pop' animation (starts at 70% size and bounces to 100%) */
 @keyframes popIn {
-  0% {
+  from {
     opacity: 0;
-    transform: scale(0.7);
+    transform: translateY(18px) scale(0.96);
   }
-  100% {
+
+  to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .model-content {
+    padding: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .btn-cancel,
+  .btn-save {
+    width: 100%;
   }
 }

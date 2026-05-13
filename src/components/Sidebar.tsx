@@ -1,3 +1,7 @@
+// src/components/Sidebar.tsx
+// Sidebar navigation for task categories.
+
+import logo from "../assets/logo.svg";
 import './Sidebar.css'
 
 type SidebarCategory =
@@ -24,8 +28,12 @@ function Sidebar({ selectedCategory, onSelectCategory }: SidebarProps) {
   return (
     <aside className="sidebar" aria-label="Task category navigation">
       <div className="sidebar__header">
-        <p className="sidebar__eyebrow">Task Planner</p>
-        <h2>Categories</h2>
+        <div className="sidebar__brand">
+          <img
+            src={logo} alt="Task Study Planner Logo"
+            className="sidebar__logo" 
+          />
+        </div>
       </div>
 
       <nav className="sidebar__nav">
