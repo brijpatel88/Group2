@@ -128,24 +128,23 @@
     position: static;
     border-right: 0;
     border-bottom: 1px solid rgba(148, 163, 184, 0.16);
-    padding: 20px;
+    padding: 16px;
   }
 
   .sidebar__header {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
+    padding: 10px;
+  }
+
+  .sidebar__logo {
+    width: 170px;
   }
 
   .sidebar__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .sidebar__brand {
-    align-items: flex-start;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
   }
 
-  .sidebar__nav {
-    grid-template-columns: 1fr;
-  }
 }
