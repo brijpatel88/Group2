@@ -17,15 +17,19 @@
   text-align: center;
 }
 
+
+
 .task-input, select, textarea {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
-  border: 1px solid #eee;
+  border: 0.5px solid #272a3b;
   border-radius: 15px;
-  background-color: #f9f9f9;
+  background-color: #3B4B66;
   font-size: 16px;
   box-sizing: border-box;
+  color: #ebebeb;
+  
 }
 
 textarea { height: 120px; resize: none; }
@@ -68,13 +72,31 @@ textarea { height: 120px; resize: none; }
 
 /* The modal box 'pops' up */
 .modal-content {
-  background: white;
+  background: #121C2E;
   padding: 40px;
   border-radius: 30px;
   width: 90%;
   max-width: 500px;
   transform: scale(1);
   animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#header{
+    display: flex;
+    gap:1rem;
+    align-items:center ;
+}
+.icon-title h2{
+    font-size: 1.8em;
+}
+.subtitle{
+    color: #ceced1;
+}
+
+header{
+    text-align: left;
+    margin-bottom: 2em;
+    display: flex;
+    gap: 1em;
 }
 
 /* Define the 'Fade' animation */
